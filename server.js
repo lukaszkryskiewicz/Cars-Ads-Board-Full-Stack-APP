@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors')
 const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')
 const app = express();
 
 const server = app.listen(process.env.PORT || 8000, () => {
@@ -21,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(session({ secret: 'AdAppxyz123', store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/AdsDB' }), resave: false, saveUninitialized: false }))
 
 //import router
 const adsRoutes = require('./routes/ads.routes')
