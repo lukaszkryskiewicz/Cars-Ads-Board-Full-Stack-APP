@@ -30,6 +30,7 @@ if (process.env.NODE_ENV !== 'production') {
   );
 }
 app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
   secret: process.env.sessionSecret,
   store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/AdsDB' }),
