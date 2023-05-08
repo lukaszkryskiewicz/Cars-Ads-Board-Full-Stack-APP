@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
         res.status(400).send({ message: 'Login or password are incorrect' });
       } else {
         if (bcrypt.compareSync(password, user.password)) {
-          req.session.login = user.login;
+          req.session.user = { login: user.login, id: user._id };
           res.status(200).send({ message: 'Login successful' })
         } else {
           res.status(400).send({ message: 'Login or password are incorrect2' });
@@ -54,9 +54,10 @@ exports.login = async (req, res) => {
 }
 
 exports.getUser = async (req, res) => {
-  if (req.session.login) {
-    res.send({ login: req.session.login });
-  } else {
-    res.status(401).send({ message: 'no permission' })
-  }
+  res.send('yes i am logged')
+}
+
+exports.logout = async (req, res) => {
+  req.session.destroy();
+  res.send({ message: 'user logout' })
 }

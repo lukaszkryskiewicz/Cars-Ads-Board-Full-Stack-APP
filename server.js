@@ -21,9 +21,24 @@ db.on('error', err => console.log('Error ' + err));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+if (process.env.NODE_ENV !== 'production') {
+  app.use(
+    cors({
+      origin: ['http://localhost:3000'],
+      credentials: true,
+    })
+  );
+}
 app.use(express.static(path.join(__dirname, '/client/build')));
-app.use(session({ secret: 'AdAppxyz123', store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/AdsDB' }), resave: false, saveUninitialized: false }))
+app.use(session({
+  secret: process.env.sessionSecret,
+  store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/AdsDB' }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV == 'production',
+  }
+}))
 
 //import router
 const adsRoutes = require('./routes/ads.routes')
