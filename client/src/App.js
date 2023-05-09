@@ -15,21 +15,24 @@ import Search from './components/pages/Search/Search'
 
 
 
-const App = () => (
-  <Container>
-    <Header />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/ad/:id" element={<Ad />} />
-      <Route path="/ad/add" element={<AdAdd />} />
-      <Route path="/ad/edit/:id" element={<AdEdit />} />
-      <Route path="/search/:searchPhrase" element={<Search />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-    <Footer />
-  </Container>
-);
+const App = () => {
+
+  return (
+    <Container>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/ad/:id" element={<Ad />} />
+        <Route path="/ad/add" element={<AdAdd />} />
+        <Route path="/ad/edit/:id" element={<AdEdit />} />
+        <Route path="/search/:searchPhrase" element={<Search />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </Container>
+  )
+};
 
 export default App;

@@ -5,7 +5,7 @@ exports.getCurrentUser = async (req, res) => {
     const user = await User.findById(req.session.user.id)
     res.json(user)
   }
-  catch {
+  catch (err) {
     res.status(500).send({ message: err.message })
   }
 } 

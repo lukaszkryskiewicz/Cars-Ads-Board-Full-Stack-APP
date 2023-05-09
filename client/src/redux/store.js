@@ -3,12 +3,12 @@ import thunk from 'redux-thunk';
 
 // import reducers
 import ads from './adsRedux';
-import users from './usersRedux';
+import user from './usersRedux';
 
 // combine reducers
 const rootReducer = combineReducers({
   ads,
-  users,
+  user,
 });
 
 const store = createStore(
