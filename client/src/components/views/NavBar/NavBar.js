@@ -12,6 +12,7 @@ const NavBar = () => {
           <Nav.Link as={NavLink} to="/ad/add">Add Ad</Nav.Link>
           <Nav.Link as={NavLink} to="/register">Sign up</Nav.Link>
           <Nav.Link as={NavLink} to="/login">Sign in</Nav.Link>
+          <Nav.Link as={NavLink} to="/logout">Sign out</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
