@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <Navbar bg="primary" variant="dark" className="mt-4 mb-4 rounded">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">Ads Boards</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/">Ads Board</Navbar.Brand>
         <Nav>
           <Nav.Link as={NavLink} to="/">Home</Nav.Link>
           <Nav.Link as={NavLink} to="/ad/add">Add Ad</Nav.Link>
