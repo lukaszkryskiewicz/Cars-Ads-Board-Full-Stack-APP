@@ -1,8 +1,9 @@
+import AdsGrid from "../../features/AdsGrid/AdsGrid";
+
+
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <AdsGrid />
   )
 }
 

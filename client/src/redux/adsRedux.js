@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 /* SELECTORS */
-export const getAds = ({ ads }) => ads.data
+export const getAllAds = ({ ads }) => ads.data
 
 /* ACTIONS */
 
@@ -38,7 +38,7 @@ export const loadAdsRequest = () => {
     dispatch(startRequest());
     try {
 
-      let res = await axios.get(`${API_URL}/ads`);
+      let res = await axios.get(`${API_URL}/api/ads`);
       dispatch(loadAds(res.data));
       dispatch(endRequest());
 
@@ -53,7 +53,7 @@ export const loadAdsRequest = () => {
 
 const initialState = {
   data: [],
-  requests: {},
+  request: {},
 };
 
 /* REDUCER */

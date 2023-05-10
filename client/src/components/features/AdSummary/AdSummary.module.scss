@@ -1,0 +1,19 @@
+.root {
+  .adSummaryContainer {
+    height: 450px;
+
+    .photoContainer {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+      }
+
+    }
+  }
+}

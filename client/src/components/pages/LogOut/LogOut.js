@@ -14,10 +14,18 @@ const Logout = () => {
     };
 
     fetch(`${API_URL}/auth/logout`, options)
-      .then(() => {
-        dispatch(logOut());
-        navigate('/');
+      .then(res => {
+        if (res.status === 200) {
+          dispatch(logOut());
+          navigate('/');
+        } else {
+          throw new Error('Logout failed')
+        }
+      })
+      .catch(err => {
+        console.log(err)
       });
+
   }, [dispatch]);
 
 

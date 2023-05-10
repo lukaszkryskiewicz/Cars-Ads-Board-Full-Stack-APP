@@ -13,10 +13,16 @@ import Login from './components/pages/Login/Login';
 import Register from './components/pages/Register/Register';
 import Search from './components/pages/Search/Search'
 import Logout from './components/pages/LogOut/LogOut';
+import { loadAdsRequest } from './redux/adsRedux';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(loadAdsRequest()), [dispatch]);
 
   return (
     <Container>
