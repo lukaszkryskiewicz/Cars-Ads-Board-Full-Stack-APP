@@ -3,6 +3,7 @@ import { API_URL } from '../config';
 
 /* SELECTORS */
 export const getAllAds = ({ ads }) => ads.data
+export const getAdById = ({ ads }, id) => ads.data.find(ad => ad._id === id);
 
 /* ACTIONS */
 
@@ -65,9 +66,9 @@ export default function reducer(statePart = initialState, action = {}) {
     case ADD_AD:
       return { ...statePart, data: [...statePart.data, action.payload] };
     case UPDATE_AD:
-      return { ...statePart, data: [statePart.data.map(ad => ad.id === action.payload.id ? { ...ad, ...action.payload } : ad)] };
+      return { ...statePart, data: statePart.data.map(ad => ad.id === action.payload.id ? { ...ad, ...action.payload } : ad) };
     case DELETE_AD:
-      return { ...statePart, data: [statePart.filter(ad => ad.id !== action.payload.id)] };
+      return { ...statePart, data: statePart.filter(ad => ad.id !== action.payload.id) };
     case START_REQUEST:
       return { ...statePart, request: { pending: true, error: null, success: false } };
     case END_REQUEST:

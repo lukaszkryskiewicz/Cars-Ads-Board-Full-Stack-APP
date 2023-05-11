@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const AdSummary = ({ title, image, address, _id }) => {
-  console.log(_id)
+
   return (
     <div className={clsx(styles.root, 'p-3 border border-primary')}>
       <div className={clsx(styles.adSummaryContainer)}>

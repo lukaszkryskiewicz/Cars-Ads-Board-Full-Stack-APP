@@ -1,0 +1,110 @@
+.root {
+  .adDetails {
+    border: 1px solid;
+    margin-bottom: 20px;
+
+    .mainRow {
+      padding-top: 10px;
+      display: flex;
+
+      .photoSection {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .photo {
+          position: relative;
+          height: 500px;
+          overflow: hidden;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+      }
+
+      .infoSection {
+        padding: 20px;
+        display: flex;
+
+
+        .infoContainer {
+
+
+          .infoRow {
+            display: flex;
+            flex-direction: column;
+            max-height: 240px;
+
+
+            .title {
+              h1 {
+                font-size: 36px;
+              }
+            }
+
+            .publishedDate {
+              .date {
+                padding: 10px 0;
+              }
+
+            }
+
+            .addressInfo {
+              .address {
+                padding: 10px 0;
+              }
+            }
+          }
+
+
+          .contentRow {
+
+            .content {
+              padding: 10px;
+              font-size: 20px;
+            }
+          }
+
+          .sellerRow {
+
+            .sellerInfo {
+              padding: 10px;
+              font-size: 20px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              ;
+
+              .avatar {
+                height: 80px;
+                width: 80px;
+                overflow: hidden;
+
+                img {
+                  height: 100%;
+                  width: 100%;
+                  border-radius: 50%;
+                }
+
+              }
+
+              .login {
+                margin: auto;
+              }
+
+              .phone {
+                margin: auto;
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

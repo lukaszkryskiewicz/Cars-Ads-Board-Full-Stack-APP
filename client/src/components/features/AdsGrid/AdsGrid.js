@@ -13,7 +13,7 @@ const AdsGrid = () => {
       <h1>Ads Board</h1>
       <Row>
         {ads.map(ad =>
-          <Col key={ad.title} md={4}>
+          <Col key={ad._id} md={4} className={'my-3'}>
             <AdSummary {...ad} />
           </Col>
         )}
