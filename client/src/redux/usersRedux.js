@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_URL } from "../config";
 
 /* SELECTORS */
-export const getUser = ({ user }) => user
+export const getUser = ({ user }) => user.login
 
 /* ACTIONS */
 
@@ -47,7 +47,7 @@ export const checkLogedUser = () => {
 /* INITIAL STATE */
 
 const initialState = {
-  data: null,
+  login: null,
   request: {}
 };
 
@@ -56,9 +56,9 @@ const initialState = {
 export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {
     case LOG_IN:
-      return { ...statePart, data: action.payload };
+      return { ...statePart, login: action.payload };
     case LOG_OUT:
-      return { ...statePart, data: null };
+      return { ...statePart, login: null };
     case START_REQUEST:
       return { ...statePart, request: { pending: true, error: null, success: false } };
     case END_REQUEST:

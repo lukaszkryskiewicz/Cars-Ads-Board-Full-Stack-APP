@@ -21,9 +21,9 @@ const UPDATE_AD = createActionName('UPDATE_AD')
 const DELETE_AD = createActionName('DELETE_AD')
 
 
-export const startRequest = () => ({ type: START_REQUEST });
-export const endRequest = () => ({ type: END_REQUEST });
-export const errorRequest = error => ({ error, type: ERROR_REQUEST });
+export const startRequest = payload => ({ payload, type: START_REQUEST });
+export const endRequest = payload => ({ payload, type: END_REQUEST });
+export const errorRequest = (payload, error) => ({ payload, error, type: ERROR_REQUEST });
 
 export const loadAds = payload => ({ payload, type: LOAD_ADS });
 export const addAd = payload => ({ payload, type: ADD_AD });
@@ -36,15 +36,35 @@ export const deleteAd = payload => ({ payload, type: DELETE_AD });
 export const loadAdsRequest = () => {
   return async dispatch => {
 
-    dispatch(startRequest());
+    dispatch(startRequest({ name: 'LOAD_ADS' }));
     try {
 
       let res = await axios.get(`${API_URL}/api/ads`);
       dispatch(loadAds(res.data));
-      dispatch(endRequest());
+      dispatch(endRequest({ name: 'LOAD_ADS' }));
 
     } catch (e) {
-      dispatch(errorRequest(e.message));
+      dispatch(errorRequest({ name: 'LOAD_ADS', error: e.message }));
+    }
+
+  };
+};
+
+export const removeAdRequest = (id) => {
+  return async dispatch => {
+
+    dispatch(startRequest({ name: 'DELETE_AD' }));
+    try {
+
+      await axios.delete(`${API_URL}/api/ads/${id}`, {
+        withCredentials: true,
+      });
+      dispatch(deleteAd(id));
+      dispatch(loadAdsRequest());
+      dispatch(endRequest({ name: 'DELETE_AD' }));
+
+    } catch (e) {
+      dispatch(errorRequest({ name: 'DELETE_AD', error: e.message }));
     }
 
   };
@@ -54,7 +74,7 @@ export const loadAdsRequest = () => {
 
 const initialState = {
   data: [],
-  request: {},
+  requests: {},
 };
 
 /* REDUCER */
@@ -68,13 +88,13 @@ export default function reducer(statePart = initialState, action = {}) {
     case UPDATE_AD:
       return { ...statePart, data: statePart.data.map(ad => ad.id === action.payload.id ? { ...ad, ...action.payload } : ad) };
     case DELETE_AD:
-      return { ...statePart, data: statePart.filter(ad => ad.id !== action.payload.id) };
+      return { ...statePart, data: statePart.data.filter(ad => ad.id !== action.payload.id) };
     case START_REQUEST:
-      return { ...statePart, request: { pending: true, error: null, success: false } };
+      return { ...statePart, requests: { ...statePart.requests, [action.payload.name]: { pending: true, error: null, success: false } } };
     case END_REQUEST:
-      return { ...statePart, request: { pending: false, error: null, success: true } };
+      return { ...statePart, requests: { ...statePart.requests, [action.payload.name]: { pending: false, error: null, success: true } } };
     case ERROR_REQUEST:
-      return { ...statePart, request: { pending: false, error: action.error, success: false } };
+      return { ...statePart, requests: { ...statePart.requests, [action.payload.name]: { pending: false, error: action.error, success: false } } };
     default:
       return statePart;
   }
