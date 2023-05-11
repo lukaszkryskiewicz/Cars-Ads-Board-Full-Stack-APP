@@ -59,7 +59,13 @@ exports.login = async (req, res) => {
 }
 
 exports.getUser = async (req, res) => {
-  res.send('yes i am logged')
+  try {
+    const user = await User.findById(req.session.user.id)
+    res.json(user)
+  }
+  catch (err) {
+    res.status(500).send({ message: err.message })
+  }
 }
 
 exports.logout = async (req, res) => {

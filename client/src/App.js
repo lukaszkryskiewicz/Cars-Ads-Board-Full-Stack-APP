@@ -16,13 +16,15 @@ import Logout from './components/pages/LogOut/LogOut';
 import { loadAdsRequest } from './redux/adsRedux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { checkLogedUser } from './redux/usersRedux';
 
 
 
 const App = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(loadAdsRequest()), [dispatch]);
+  useEffect(() => { dispatch(loadAdsRequest()) }, [dispatch]);
+  useEffect(() => { dispatch(checkLogedUser()) }, [dispatch]);
 
   return (
     <Container>

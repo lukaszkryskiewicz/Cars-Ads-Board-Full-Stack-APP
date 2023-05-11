@@ -43,11 +43,9 @@ app.use(session({
 
 //import router
 const adsRoutes = require('./routes/ads.routes')
-const usersRoutes = require('./routes/users.routes')
 const authRotes = require('./routes/auth.routes')
 
 app.use('/api', adsRoutes);
-app.use('/api', usersRoutes);
 app.use('/auth', authRotes);
 
 app.get('*', (req, res) => {
