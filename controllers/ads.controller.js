@@ -34,12 +34,13 @@ exports.postAd = async (req, res) => {
       await newAd.save();
       res.json({ message: 'Ad successfully added' });
     } else {
-      fs.unlinkSync(image.path)
+      //  fs.unlinkSync(image.path)
       res.status(400).send({ message: 'Bad request' })
     }
   }
   catch (err) {
-    fs.unlinkSync(image.path)
+    // fs.unlinkSync(image.path)
+    console.log(err)
     res.status(500).json({ message: err });
   }
 };
