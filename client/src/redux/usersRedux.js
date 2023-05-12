@@ -33,7 +33,7 @@ export const checkLogedUser = () => {
       let res = await axios.get(`${API_URL}/auth/user`, {
         withCredentials: true,
       });
-      dispatch(logIn(res.data.login));
+      dispatch(logIn(res.data));
       dispatch(endRequest());
 
     } catch (e) {
@@ -56,7 +56,7 @@ const initialState = {
 export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {
     case LOG_IN:
-      return { ...statePart, login: action.payload };
+      return { ...statePart, login: action.payload.login };
     case LOG_OUT:
       return { ...statePart, login: null };
     case START_REQUEST:

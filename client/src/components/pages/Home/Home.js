@@ -9,11 +9,9 @@ import { getAllAds } from "../../../redux/adsRedux";
 const Home = () => {
   const ads = useSelector(getAllAds);
   const [search, setSearch] = useState('');
-  console.log(search)
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    console.log(search)
     navigate(`/search/${search}`)
   }
   return (<>

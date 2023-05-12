@@ -22,8 +22,7 @@ const Ad = () => {
     navigate('/')
   }
 
-
-  if (!ad || !user) {
+  if (!ad) {
     return <div>Loading...</div>;
   }
 
