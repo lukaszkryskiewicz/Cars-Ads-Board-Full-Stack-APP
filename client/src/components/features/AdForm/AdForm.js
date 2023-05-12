@@ -5,12 +5,11 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 
-const AdForm = ({ action }) => {
-
-  const [title, setTitle] = useState('');
-  const [address, setAddress] = useState('');
-  const [price, setPrice] = useState('');
-  const [content, setContent] = useState('');
+const AdForm = ({ action, adInfo }) => {
+  const [title, setTitle] = useState(adInfo?.title || '');
+  const [address, setAddress] = useState(adInfo?.address || '');
+  const [price, setPrice] = useState(adInfo?.price || '');
+  const [content, setContent] = useState(adInfo?.content || '');
   const [image, setImage] = useState('')
 
   const schema = yup.object({
@@ -45,8 +44,10 @@ const AdForm = ({ action }) => {
     fd.append('address', address);
     fd.append('price', price);
     fd.append('content', content);
-    fd.append('image', image);
-
+    console.log(Boolean(image))
+    if (image) {
+      fd.append('image', image);
+    }
     action(fd)
   }
 

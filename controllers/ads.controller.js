@@ -74,10 +74,11 @@ exports.editAd = async (req, res) => {
     const ad = await Ad.findById(req.params.id).populate('seller');
     console.log(ad)
     if (ad && ad.seller.id === req.session.user.id) {
+      console.log(ad)
       const oldImage = ad.image
       await Ad.updateOne({ _id: req.params.id }, { $set: updateFields });
       res.json({ message: 'OK' });
-      if (oldImage && updateFields.image !== oldImage) {
+      if (oldImage && updateFields.image && updateFields.image !== oldImage) {
         fs.unlinkSync('public/uploads/' + oldImage)
       }
     } else res.status(404).json({ message: 'You have no power here...' });

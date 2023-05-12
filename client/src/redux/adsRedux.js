@@ -69,6 +69,25 @@ export const addAdRequest = (ad) => {
   };
 };
 
+export const editAdRequest = (id, ad) => {
+  return async dispatch => {
+
+    dispatch(startRequest({ name: 'UPDATE_ADD' }));
+    try {
+      let res = await axios.put(`${API_URL}/api/ads/${id}`, ad, {
+        withCredentials: true
+      });
+      dispatch(updateAd(res.data));
+      dispatch(loadAdsRequest());
+      dispatch(endRequest({ name: 'UPDATE_ADD' }));
+
+    } catch (e) {
+      dispatch(errorRequest({ name: 'UPDATE_ADD', error: e.message }));
+    }
+
+  };
+};
+
 export const removeAdRequest = (id) => {
   return async dispatch => {
 
