@@ -4,6 +4,8 @@ import { API_URL } from '../config';
 /* SELECTORS */
 export const getAllAds = ({ ads }) => ads.data
 export const getAdById = ({ ads }, id) => ads.data.find(ad => ad._id === id);
+export const searchAdByTitle = ({ ads }, searchPhrase) => ads.data.filter(ad =>
+  ad.title.toLowerCase().includes(searchPhrase))
 
 /* ACTIONS */
 
