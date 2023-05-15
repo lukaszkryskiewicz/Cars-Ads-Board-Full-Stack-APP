@@ -14,7 +14,6 @@ const dbUrl = process.env.NODE_ENV === 'production' ?
   `mongodb+srv://lukaszkryskiewicz:${process.env.DB_PASS}@clusteradboard.rzn55az.mongodb.net/AdBoardApp` :
   'mongodb://localhost:27017/AdsDB';
 
-
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
@@ -37,12 +36,19 @@ app.use(express.static(path.join(__dirname, '/client/build')));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
   secret: process.env.sessionSecret,
-  store: MongoStore.create({ mongoUrl: dbUrl }),
+  store: MongoStore.create({
+    mongoUrl: dbUrl,
+    mongoOptions: {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    collectionName: 'sessions',
+    cookie: {
+      secure: process.env.NODE_ENV == 'production',
+    }
+  }),
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    secure: process.env.NODE_ENV == 'production',
-  }
 }))
 
 //import router
