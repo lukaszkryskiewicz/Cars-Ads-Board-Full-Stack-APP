@@ -22,6 +22,10 @@ const AdForm = ({ action, adInfo }) => {
       .max(100, 'Content must have less than 100 characters')
       .required('Content is required'),
     image: yup.mixed()
+      .test('required', 'Image is requried', (value) => {
+        if (!image && !adInfo) return false;
+        return true
+      })
       .test('fileType', 'Invalid file type. Only .jpg, .png or .gif files are allowed', (value) => {
         if (value.length === 0) return true;
         const fileType = value[0].type;
