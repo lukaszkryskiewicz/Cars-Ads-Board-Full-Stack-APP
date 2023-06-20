@@ -10,7 +10,7 @@ const Home = () => {
 
   return (<>
     <Row className='justify-content-between align-items-center'>
-      <h1 className='col-md-auto col-12 text-center'>Car Advertising Board</h1>
+      <h1 className='col-md-auto col-12 text-center'>Cars Advertising Board</h1>
       <SearchBar />
     </Row>
     <AdsGrid ads={ads} />

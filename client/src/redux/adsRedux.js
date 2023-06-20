@@ -5,7 +5,7 @@ import { API_URL } from '../config';
 export const getAllAdsByNewest = ({ ads }) => ads.data.slice().reverse();
 export const getAdById = ({ ads }, id) => ads.data.find(ad => ad._id === id);
 export const searchAdByTitle = ({ ads }, searchPhrase) => ads.data.filter(ad =>
-  ad.title.toLowerCase().includes(searchPhrase))
+  ad.title.toLowerCase().includes(searchPhrase.toLowerCase()))
 
 /* ACTIONS */
 
@@ -60,6 +60,9 @@ export const addAdRequest = (ad) => {
       let res = await axios.post(`${API_URL}/api/ads`, ad, {
         withCredentials: true
       });
+      if (res.status !== 200) {
+        throw new Error('Add Ad failed');
+      }
       dispatch(addAd(res.data));
       dispatch(loadAdsRequest());
       dispatch(endRequest({ name: 'ADD_AD' }));
@@ -81,7 +84,7 @@ export const editAdRequest = (id, ad) => {
       });
 
       if (res.status !== 200) {
-        throw new Error('Edit Ad failed'); // Throw an error when the response status is not 200
+        throw new Error('Edit Ad failed');
       }
       dispatch(updateAd(res.data));
       dispatch(loadAdsRequest());
@@ -89,7 +92,6 @@ export const editAdRequest = (id, ad) => {
 
     } catch (e) {
       dispatch(errorRequest({ name: 'UPDATE_ADD', error: e.message }));
-      throw e;
     }
 
   };

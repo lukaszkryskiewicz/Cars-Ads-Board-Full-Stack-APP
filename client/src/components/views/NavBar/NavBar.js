@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <Navbar expand='md' collapseOnSelect bg="dark" variant="dark" className="mt-4 mb-4 rounded">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">Car Advertising Board</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/">Cars Advertising Board</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
           <Nav className='align-items-center'>

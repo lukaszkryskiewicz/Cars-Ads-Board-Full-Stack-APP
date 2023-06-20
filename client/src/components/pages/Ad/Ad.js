@@ -46,11 +46,11 @@ const Ad = () => {
     {user === ad.seller.login &&
       <div className={clsx(styles.buttons)}>
         <NavLink to={'/ad/edit/' + id}>
-          <Button className='m-1'>
+          <Button className='m-1' variant='dark'>
             Edit
           </Button>
         </NavLink>
-        <Button className='m-1' variant='danger' onClick={() => setShow(true)}>
+        <Button className='m-1' variant='dark' onClick={() => setShow(true)}>
           Delete
         </Button>
       </div>}
