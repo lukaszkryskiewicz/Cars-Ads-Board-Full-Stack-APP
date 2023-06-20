@@ -88,7 +88,7 @@ const AdForm = ({ action, adInfo }) => {
         <Form.Text className='text-danger'>{errors.image?.message}</Form.Text>
       </Form.Group>
       <div className='d-grid'>
-        <Button variant="primary" type='submit'>
+        <Button variant="dark" type='submit'>
           Submit
         </Button>
       </div>

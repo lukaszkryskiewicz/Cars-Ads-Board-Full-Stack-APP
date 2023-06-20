@@ -1,0 +1,21 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  .pageItem {
+    .pageLink {
+      color: black;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    .active.pageLink {
+      background-color: black;
+      border-color: black;
+      color: white;
+    }
+  }
+}

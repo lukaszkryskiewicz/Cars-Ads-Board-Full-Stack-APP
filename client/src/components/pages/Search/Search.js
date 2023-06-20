@@ -3,6 +3,7 @@ import { Row } from "react-bootstrap";
 import AdsGrid from "../../features/AdsGrid/AdsGrid";
 import { useSelector } from "react-redux";
 import { searchAdByTitle } from "../../../redux/adsRedux";
+import SearchBar from "../../features/SearchBar/SearchBar";
 
 
 const Search = () => {
@@ -12,7 +13,8 @@ const Search = () => {
   return (
     <>
       <Row className='justify-content-between align-items-center'>
-        <h1>Search results for : {searchPhrase}</h1>
+        <h1 className='col-md-auto col-12 text-center'>Search results for : {searchPhrase}</h1>
+        <SearchBar />
       </Row>
       <AdsGrid ads={filteredAds} />
     </>

@@ -8,9 +8,9 @@ const NavBar = () => {
   const user = useSelector(getUser);
 
   return (
-    <Navbar bg="primary" variant="dark" className="mt-4 mb-4 rounded">
+    <Navbar bg="dark" variant="dark" className="mt-4 mb-4 rounded">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">Ads Board</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/">Car Advertising Board</Navbar.Brand>
         <Nav>
           <Nav.Link as={NavLink} to="/">Home</Nav.Link>
           {user && <Nav.Link as={NavLink} to="/ad/add">Add Ad</Nav.Link>}

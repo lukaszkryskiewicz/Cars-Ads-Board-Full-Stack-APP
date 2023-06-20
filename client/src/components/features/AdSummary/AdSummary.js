@@ -4,22 +4,22 @@ import { IMGS_URL } from '../../../config';
 import { Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-const AdSummary = ({ title, image, address, _id }) => {
+const AdSummary = ({ price, title, image, address, _id }) => {
 
   return (
-    <div className={clsx(styles.root, 'p-3 border border-primary')}>
+    <div className={clsx(styles.root, 'p-3 border border-dark')}>
       <div className={clsx(styles.adSummaryContainer)}>
-        <h3>{title}</h3>
         <div className={clsx(styles.photoContainer)}>
           <img src={IMGS_URL + image} alt={title} />
         </div>
-        <p>{address}</p>
+        <h3 className={clsx('py-2')}>{title}</h3>
+        <p className={clsx('')}>{address}</p>
+        <p>$ {price}</p>
         <NavLink to={"/ad/" + _id}>
-          <Button variant="primary">
+          <Button className='w-100' variant="dark">
             Read more
           </Button>
         </NavLink>
-
       </div>
     </div>
   )

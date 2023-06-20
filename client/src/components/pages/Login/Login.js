@@ -85,7 +85,7 @@ const Login = () => {
         <Form.Control type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter passsword' />
       </Form.Group>
 
-      <Button variant="primary" type='submit'>
+      <Button variant="dark" type='submit'>
         Sign in
       </Button>
 
