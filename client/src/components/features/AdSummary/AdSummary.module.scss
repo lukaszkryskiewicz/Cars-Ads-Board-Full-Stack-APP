@@ -17,10 +17,24 @@
       }
 
     }
+
+    .title {
+      font-size: 22px;
+    }
   }
 
   a {
     text-decoration: none;
     color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    .adSummaryContainer {
+      .photoContainer {
+        height: auto;
+      }
+    }
   }
 }

@@ -1,12 +1,12 @@
 import AdsGrid from "../../features/AdsGrid/AdsGrid";
 import { Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getAllAds } from "../../../redux/adsRedux";
+import { getAllAdsByNewest } from "../../../redux/adsRedux";
 import SearchBar from "../../features/SearchBar/SearchBar";
 
 
 const Home = () => {
-  const ads = useSelector(getAllAds);
+  const ads = useSelector(getAllAdsByNewest);
 
   return (<>
     <Row className='justify-content-between align-items-center'>

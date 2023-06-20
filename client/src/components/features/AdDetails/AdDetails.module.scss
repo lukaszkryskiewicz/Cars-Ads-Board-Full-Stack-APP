@@ -1,7 +1,5 @@
 .root {
   .adDetails {
-    border: 1px solid;
-    margin-bottom: 20px;
 
     .mainRow {
       padding-top: 10px;
@@ -11,7 +9,6 @@
         padding: 20px;
         display: flex;
         align-items: center;
-        max-height: 400px;
 
         .photo {
           position: relative;
@@ -85,7 +82,6 @@
 
             .content {
               // padding: 10px;
-              font-size: 20px;
               margin: 0 auto;
             }
           }
@@ -95,7 +91,6 @@
 
             .sellerInfo {
               padding: 10px;
-              font-size: 20px;
               display: flex;
               flex-direction: row;
               align-items: center;
@@ -105,22 +100,24 @@
                 height: 80px;
                 width: 80px;
                 overflow: hidden;
+                padding: 10px;
 
                 img {
                   height: 100%;
                   width: 100%;
                   border-radius: 50%;
+                  border: 1px solid grey;
                 }
 
               }
 
-              .login {
-                margin: auto;
-              }
-
+              .login,
               .phone {
                 margin: auto;
+                padding: 5px;
               }
+
+
 
             }
           }

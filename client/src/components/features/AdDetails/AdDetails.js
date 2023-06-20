@@ -6,7 +6,7 @@ const AdDetails = ({ ad }) => {
 
   return (
     <div className={styles.root}>
-      <div className={clsx('container', styles.adDetails)}>
+      <div className={clsx(styles.adDetails)}>
         <div className={clsx('row', styles.mainRow)}>
           <div className={clsx('col-lg-5 col-md-12', styles.photoSection)}>
             <div
@@ -23,7 +23,7 @@ const AdDetails = ({ ad }) => {
             <div className={clsx('row', styles.infoContainer)}>
               <div className={clsx('row', styles.infoRow)}>
                 <div className={styles.title}>
-                  <h1>{ad.title}</h1>
+                  <h1 className='col-md-9'>{ad.title}</h1>
                 </div>
                 <div className={clsx(styles.publishedDate)}>
                   <div>
@@ -54,10 +54,10 @@ const AdDetails = ({ ad }) => {
                     </div>
                   </div>
                   <div className={clsx(styles.login)}>
-                    Name: {ad.seller.login}
+                    Author: {ad.seller.login}
                   </div>
                   <div className={clsx(styles.phone)}>
-                    Phone: {ad.seller.phone}
+                    Contact: {ad.seller.phone}
                   </div>
                 </div>
               </div>

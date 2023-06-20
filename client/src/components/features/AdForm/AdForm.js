@@ -14,7 +14,7 @@ const AdForm = ({ action, adInfo }) => {
 
   const schema = yup.object({
     title: yup.string().min(10, 'Title must have at least 10 characters')
-      .max(50, 'Title must have less than 50 characters')
+      .max(25, 'Title must have less than 25 characters')
       .required('Title is required'),
     address: yup.string().required('Address is required'),
     price: yup.number().required('Price is required').typeError('Price must be a number'),
@@ -48,7 +48,6 @@ const AdForm = ({ action, adInfo }) => {
     fd.append('address', address);
     fd.append('price', price);
     fd.append('content', content);
-    console.log(Boolean(image))
     if (image) {
       fd.append('image', image);
     }

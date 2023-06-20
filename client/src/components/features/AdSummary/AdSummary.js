@@ -12,9 +12,11 @@ const AdSummary = ({ price, title, image, address, _id }) => {
         <div className={clsx(styles.photoContainer)}>
           <img src={IMGS_URL + image} alt={title} />
         </div>
-        <h3 className={clsx('py-2')}>{title}</h3>
-        <p className={clsx('')}>{address}</p>
-        <p>$ {price}</p>
+        <h3 className={clsx('py-2', styles.title)}>{title}</h3>
+        <div className={clsx('d-flex justify-content-between', styles.additionalInfo)}>
+          <p className={clsx('')}>{address}</p>
+          <p>$ {price}</p>
+        </div>
         <NavLink to={"/ad/" + _id}>
           <Button className='w-100' variant="dark">
             Read more

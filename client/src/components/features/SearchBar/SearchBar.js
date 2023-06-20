@@ -15,7 +15,7 @@ const SearchBar = () => {
   return (
     <Form className='col-md-auto col-12 my-auto' onSubmit={handleSubmit}>
       <Form.Group controlId='formSearch' className='input-group'>
-        <Form.Control type='text' value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search' />
+        <Form.Control type='text' className='shadow-none' value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search' />
         <Button variant='dark' type='submit'>
           Search
         </Button>

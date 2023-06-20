@@ -26,7 +26,7 @@ const Ad = () => {
     return <div>Loading...</div>;
   }
 
-  return (<>
+  return (<div className={clsx('container', styles.root)}>
     <Modal show={show} onHide={handleClose} size="sm"
       aria-labelledby="contained-modal-title-vcenter"
       centered>
@@ -44,7 +44,7 @@ const Ad = () => {
       </Modal.Footer>
     </Modal>
     {user === ad.seller.login &&
-      <div className={clsx('float-end py-4 px-2', styles.buttons)}>
+      <div className={clsx(styles.buttons)}>
         <NavLink to={'/ad/edit/' + id}>
           <Button className='m-1'>
             Edit
@@ -55,7 +55,7 @@ const Ad = () => {
         </Button>
       </div>}
     <AdDetails ad={ad} />
-  </>
+  </div>
   )
 }
 

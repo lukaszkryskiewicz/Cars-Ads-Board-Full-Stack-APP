@@ -26,7 +26,7 @@ const AdsGrid = ({ ads }) => {
           (activePage - 1) * productsOnPage,
           activePage * productsOnPage)
           .map(ad =>
-            <Col key={ad._id} md={4} className={'my-3'}>
+            <Col key={ad._id} xl={4} md={6} xs={12} className={'my-3'}>
               <AdSummary {...ad} />
             </Col>
           )}

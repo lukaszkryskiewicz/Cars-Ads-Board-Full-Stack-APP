@@ -21,7 +21,6 @@ const AdEdit = () => {
   if (!currentAd) {
     return <div>Loading...</div>;
   }
-  console.log(currentAd)
 
 
   return (<div className='col-12 col-sm-5 mx-auto'>

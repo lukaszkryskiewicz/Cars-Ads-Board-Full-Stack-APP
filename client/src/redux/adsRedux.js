@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 /* SELECTORS */
-export const getAllAds = ({ ads }) => ads.data
+export const getAllAdsByNewest = ({ ads }) => ads.data.slice().reverse();
 export const getAdById = ({ ads }, id) => ads.data.find(ad => ad._id === id);
 export const searchAdByTitle = ({ ads }, searchPhrase) => ads.data.filter(ad =>
   ad.title.toLowerCase().includes(searchPhrase))
@@ -79,12 +79,17 @@ export const editAdRequest = (id, ad) => {
       let res = await axios.put(`${API_URL}/api/ads/${id}`, ad, {
         withCredentials: true
       });
+
+      if (res.status !== 200) {
+        throw new Error('Edit Ad failed'); // Throw an error when the response status is not 200
+      }
       dispatch(updateAd(res.data));
       dispatch(loadAdsRequest());
       dispatch(endRequest({ name: 'UPDATE_ADD' }));
 
     } catch (e) {
       dispatch(errorRequest({ name: 'UPDATE_ADD', error: e.message }));
+      throw e;
     }
 
   };

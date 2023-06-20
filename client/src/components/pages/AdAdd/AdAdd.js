@@ -13,13 +13,12 @@ const AdAdd = () => {
 
   const handleSubmit = (ad) => {
     ad.append('date', new Date().toLocaleDateString('en-GB'))
-    console.log(ad)
     dispatch(addAdRequest(ad))
     navigate('/')
   }
 
 
-  return (<div className='col-12 col-sm-5 mx-auto'>
+  return (<div className='col-11 col-sm-7 mx-auto'>
     <h1 className='my-4'>New Ad</h1>
     {user === null && <p>You must be logged in</p>}
     {user && <AdForm action={handleSubmit} />}
