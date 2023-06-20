@@ -16,6 +16,7 @@ const NavBar = () => {
           <Nav className='align-items-center'>
             <Nav.Link eventKey={1} as={NavLink} to="/">Home</Nav.Link>
             {user && <Nav.Link eventKey={2} as={NavLink} to="/ad/add">Add Ad</Nav.Link>}
+            {user && <Nav.Link eventKey={6} as={NavLink} to="/myAds">My Ads</Nav.Link>}
             {!user && <Nav.Link eventKey={3} as={NavLink} to="/register">Sign up</Nav.Link>}
             {!user && <Nav.Link eventKey={4} as={NavLink} to="/login">Sign in</Nav.Link>}
             {user && <Nav.Link eventKey={5} as={NavLink} to="/logout">Sign out</Nav.Link>}

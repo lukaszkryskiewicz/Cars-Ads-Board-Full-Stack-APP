@@ -17,6 +17,8 @@ import { loadAdsRequest } from './redux/adsRedux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { checkLogedUser } from './redux/usersRedux';
+import MyAds from './components/pages/MyAds/MyAds';
+import UserAds from './components/pages/UserAds/UserAds';
 
 
 
@@ -34,6 +36,8 @@ const App = () => {
         <Route path="/ad/:id" element={<Ad />} />
         <Route path="/ad/add" element={<AdAdd />} />
         <Route path="/ad/edit/:id" element={<AdEdit />} />
+        <Route path="/myAds" element={<MyAds />} />
+        <Route path="ad/userAds/:sellerId" element={<UserAds />} />
         <Route path="/search/:searchPhrase" element={<Search />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

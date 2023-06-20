@@ -10,6 +10,7 @@ const server = app.listen(process.env.PORT || 8000, () => {
   console.log('Server is running on port: 8000');
 });
 
+
 const dbUrl = process.env.NODE_ENV === 'production' ?
   `mongodb+srv://lukaszkryskiewicz:${process.env.DB_PASS}@clusteradboard.rzn55az.mongodb.net/AdBoardApp` :
   'mongodb://localhost:27017/AdsDB';

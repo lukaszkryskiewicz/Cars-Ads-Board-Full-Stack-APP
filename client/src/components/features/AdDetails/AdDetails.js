@@ -1,8 +1,14 @@
 import clsx from 'clsx';
 import styles from './AdDetails.module.scss';
 import { IMGS_URL } from '../../../config';
+import { useNavigate } from 'react-router-dom';
 
 const AdDetails = ({ ad }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/ad/userAds/' + ad.seller.login)
+  }
 
   return (
     <div className={styles.root}>
@@ -53,11 +59,9 @@ const AdDetails = ({ ad }) => {
                       <img src={IMGS_URL + ad.seller.avatar} alt={ad.title} />
                     </div>
                   </div>
-                  <div className={clsx(styles.login)}>
-                    Author: {ad.seller.login}
-                  </div>
-                  <div className={clsx(styles.phone)}>
-                    Contact: {ad.seller.phone}
+                  <div className={clsx(styles.contactInfo)} onClick={handleClick}>
+                    <p className={clsx(styles.login)}>{ad.seller.login}</p>
+                    <p className={clsx(styles.phone)}>{ad.seller.phone}</p>
                   </div>
                 </div>
               </div>

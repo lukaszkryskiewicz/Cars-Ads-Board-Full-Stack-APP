@@ -16,7 +16,9 @@ const Search = () => {
         <h1 className='col-md-auto col-12 text-center'>Search results for : {searchPhrase}</h1>
         <SearchBar />
       </Row>
-      <AdsGrid ads={filteredAds} />
+      {filteredAds ?
+        <AdsGrid ads={filteredAds} /> :
+        <p>There are no ads</p>}
     </>
   )
 }

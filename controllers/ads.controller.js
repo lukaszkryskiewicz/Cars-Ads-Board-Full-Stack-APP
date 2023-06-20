@@ -40,7 +40,6 @@ exports.postAd = async (req, res) => {
   }
   catch (err) {
     // fs.unlinkSync(image.path)
-    console.log(err)
     res.status(500).json({ message: err });
   }
 };
@@ -72,9 +71,7 @@ exports.editAd = async (req, res) => {
 
   try {
     const ad = await Ad.findById(req.params.id).populate('seller');
-    console.log(ad)
     if (ad && ad.seller.id === req.session.user.id) {
-      console.log(ad)
       const oldImage = ad.image
       await Ad.updateOne({ _id: req.params.id }, { $set: updateFields });
       res.json({ message: 'OK' });
