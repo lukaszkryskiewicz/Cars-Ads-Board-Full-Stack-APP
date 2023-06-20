@@ -1,5 +1,5 @@
 import AdsGrid from "../../features/AdsGrid/AdsGrid";
-import { Row, Form, Button } from "react-bootstrap";
+import { Row, Form, Button, Pagination } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -10,6 +10,17 @@ const Home = () => {
   const ads = useSelector(getAllAds);
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
+  const [activePage, setActivePage] = useState(1);
+
+  const pagesCount = Math.ceil(ads.length / 6)
+  let items = [];
+  for (let number = 1; number <= pagesCount; number++) {
+    items.push(
+      <Pagination.Item key={number} active={number === activePage} onClick={() => setActivePage(number)}>
+        {number}
+      </Pagination.Item>,
+    );
+  }
 
   const handleSubmit = () => {
     navigate(`/search/${search}`)
@@ -27,6 +38,7 @@ const Home = () => {
       </Form>
     </Row>
     <AdsGrid ads={ads} />
+    <Pagination className='justify-content-center'>{items}</Pagination>
   </>
   )
 }

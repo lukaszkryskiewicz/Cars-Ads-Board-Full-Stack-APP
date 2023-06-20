@@ -95,11 +95,11 @@ const Register = () => {
         <Form.Label>Avatar</Form.Label>
         <Form.Control type='file' onChange={(e) => setAvatar(e.target.files[0])} />
       </Form.Group>
-
-      <Button variant="primary" type='submit'>
-        Submit
-      </Button>
-
+      <div className='d-grid'>
+        <Button variant="primary" type='submit'>
+          Submit
+        </Button>
+      </div>
     </Form>
   )
 }

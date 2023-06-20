@@ -87,12 +87,13 @@ const AdForm = ({ action, adInfo }) => {
         <Form.Control type='file'  {...register('image')} onChange={(e) => setImage(e.target.files[0])} />
         <Form.Text className='text-danger'>{errors.image?.message}</Form.Text>
       </Form.Group>
+      <div className='d-grid'>
+        <Button variant="primary" type='submit'>
+          Submit
+        </Button>
+      </div>
 
-      <Button variant="primary" type='submit'>
-        Submit
-      </Button>
-
-    </Form>
+    </Form >
   )
 }
 
