@@ -6,7 +6,7 @@ export const getAllAdsByNewest = ({ ads }) => ads.data.slice().reverse();
 export const getAdById = ({ ads }, id) => ads.data.find(ad => ad._id === id);
 export const searchAdByTitle = ({ ads }, searchPhrase) => ads.data.filter(ad =>
   ad.title.toLowerCase().includes(searchPhrase.toLowerCase()))
-export const getUsersAds = ({ ads }, login) => ads.data.filter(ad => ad.seller.login === login);
+export const getUsersAds = ({ ads }, login) => ads.data.filter(ad => ad.seller.login === login).slice().reverse();
 /* ACTIONS */
 
 // action name creator

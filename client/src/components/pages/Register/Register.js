@@ -43,7 +43,7 @@ const Register = () => {
 
 
   return (
-    <Form className='col-12 col-sm-3 mx-auto' onSubmit={handleSubmit}>
+    <Form className='col-9 col-sm-7 col-lg-5 mx-auto' onSubmit={handleSubmit}>
 
       <h1 className='my-4'>Sign up</h1>
 

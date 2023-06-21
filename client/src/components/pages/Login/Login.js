@@ -47,7 +47,7 @@ const Login = () => {
   }
 
   return (
-    <Form className='col-12 col-sm-3 mx-auto' onSubmit={handleSubmit}>
+    <Form className='col-9 col-sm-5 col-lg-3 mx-auto' onSubmit={handleSubmit}>
 
       <h1 className='my-4'>Login</h1>
 
@@ -84,11 +84,11 @@ const Login = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter passsword' />
       </Form.Group>
-
-      <Button variant="dark" type='submit'>
-        Sign in
-      </Button>
-
+      <div className='d-grid'>
+        <Button variant="dark" type='submit'>
+          Sign in
+        </Button>
+      </div>
     </Form>
   )
 }

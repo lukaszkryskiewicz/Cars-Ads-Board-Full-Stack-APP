@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import styles from './AdDetails.module.scss';
 import { IMGS_URL } from '../../../config';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const AdDetails = ({ ad }) => {
   const navigate = useNavigate();
@@ -60,8 +61,12 @@ const AdDetails = ({ ad }) => {
                     </div>
                   </div>
                   <div className={clsx(styles.contactInfo)} onClick={handleClick}>
-                    <p className={clsx(styles.login)}>{ad.seller.login}</p>
-                    <p className={clsx(styles.phone)}>{ad.seller.phone}</p>
+                    <Button variant='light' className={clsx(styles.login)}>
+                      <i className='fa fa-user' /> {ad.seller.login}
+                    </Button>
+                    <p className={clsx(styles.phone)}>
+                      <i className='fa fa-phone' /> {ad.seller.phone}
+                    </p>
                   </div>
                 </div>
               </div>

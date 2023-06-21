@@ -94,13 +94,14 @@
               display: flex;
               flex-direction: row;
               align-items: center;
+              gap: 10px;
 
 
               .avatar {
                 height: 80px;
                 width: 80px;
                 overflow: hidden;
-                padding: 10px;
+                padding: 5px;
 
                 img {
                   height: 100%;
@@ -121,6 +122,8 @@
                   margin: auto;
                   padding: 5px;
                 }
+
+
 
               }
 
