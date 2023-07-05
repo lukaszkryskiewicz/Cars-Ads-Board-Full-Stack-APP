@@ -28,9 +28,9 @@ const MyAds = () => {
         </Spinner>}
       {(!user && userStatus.error !== null) &&
         <h2>Please sign in first</h2>}
-      {(user && userStatus.success && ads.length > 0) &&
+      {(user && ads.length > 0) &&
         <AdsGrid ads={ads} />}
-      {(user && userStatus.success && ads.length === 0) &&
+      {(user && ads.length === 0) &&
         < h2 > You don't have any ads</h2>}
     </>
   )
