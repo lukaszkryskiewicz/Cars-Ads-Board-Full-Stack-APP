@@ -3,6 +3,7 @@ import { API_URL } from "../config";
 
 /* SELECTORS */
 export const getUser = ({ user }) => user.login
+export const getUserStatus = ({ user }) => user.request
 
 /* ACTIONS */
 
