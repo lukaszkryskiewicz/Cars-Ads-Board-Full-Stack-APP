@@ -21,7 +21,7 @@ const UserAds = () => {
       </Row>
       {ads?.length > 0 ?
         <AdsGrid ads={ads} /> :
-        sellerId && <p>{sellerId} don't have any ads</p>}
+        sellerId && <h2>{sellerId} don't have any ads</h2>}
     </>
   )
 }

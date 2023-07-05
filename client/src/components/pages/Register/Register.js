@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Alert, Button, Form, Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../../config";
 
 
+
 const Register = () => {
+  const navigate = useNavigate();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
@@ -28,6 +31,11 @@ const Register = () => {
       .then(res => {
         if (res.status === 201) {
           setStatus('success');
+          setTimeout(() => {
+            navigate('/login')
+          },
+            2000
+          )
         } else if (res.status === 400) {
           setStatus('clientError')
         } else if (res.status === 409) {

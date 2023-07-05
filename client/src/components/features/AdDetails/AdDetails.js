@@ -34,17 +34,17 @@ const AdDetails = ({ ad }) => {
                 </div>
                 <div className={clsx(styles.publishedDate)}>
                   <div>
-                    <p className={clsx(styles.date)}>Published : {ad.date}</p>
+                    <p className={clsx(styles.date)}><span className={clsx(styles.item)}>Published: </span>{ad.date}</p>
                   </div>
                 </div>
                 <div className={clsx(styles.addressInfo)}>
                   <div>
-                    <p className={clsx(styles.address)}>Address: {ad.address}</p>
+                    <p className={clsx(styles.address)}><span className={clsx(styles.item)}>Address: </span>{ad.address}</p>
                   </div>
                 </div>
                 <div className={clsx(styles.priceInfo)}>
                   <div>
-                    <p className={clsx(styles.price)}>Price: {ad.price}$</p>
+                    <p className={clsx(styles.price)}><span className={clsx(styles.item)}>Price: $ </span>{ad.price}</p>
                   </div>
                 </div>
               </div>
@@ -60,11 +60,11 @@ const AdDetails = ({ ad }) => {
                       <img src={IMGS_URL + ad.seller.avatar} alt={ad.title} />
                     </div>
                   </div>
-                  <div className={clsx(styles.contactInfo)} onClick={handleClick}>
-                    <Button variant='light' className={clsx(styles.login)}>
+                  <div className={clsx(styles.contactInfo, 'd-flex flex-sm-row flex-column justify-center')} onClick={handleClick}>
+                    <Button variant='dark' className={clsx(styles.login)}>
                       <i className='fa fa-user' /> {ad.seller.login}
                     </Button>
-                    <p className={clsx(styles.phone)}>
+                    <p className={clsx(styles.phone, 'my-auto pt-1 mx-sm-3')}>
                       <i className='fa fa-phone' /> {ad.seller.phone}
                     </p>
                   </div>

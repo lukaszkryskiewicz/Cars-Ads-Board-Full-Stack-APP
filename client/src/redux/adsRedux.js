@@ -3,6 +3,7 @@ import { API_URL } from '../config';
 
 /* SELECTORS */
 export const getAllAdsByNewest = ({ ads }) => ads.data.slice().reverse();
+export const getRequestStatus = ({ ads }) => ads.requests?.LOAD_ADS;
 export const getAdById = ({ ads }, id) => ads.data.find(ad => ad._id === id);
 export const searchAdByTitle = ({ ads }, searchPhrase) => ads.data.filter(ad =>
   ad.title.toLowerCase().includes(searchPhrase.toLowerCase()))
